@@ -1,0 +1,35 @@
+{
+  "name": "eastern-crm-whatsapp-service",
+  "version": "1.0.0",
+  "description": "WhatsApp service for Eastern Mills CRM production follow-ups",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "whatsapp",
+    "crm",
+    "production",
+    "messaging"
+  ],
+  "author": "Eastern Mills",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "whatsapp-web.js": "^1.26.0",
+    "qrcode": "^1.5.4",
+    "firebase-admin": "^13.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "uuid": "^11.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
