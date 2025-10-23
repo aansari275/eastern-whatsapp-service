@@ -10,9 +10,23 @@
 const admin = require('firebase-admin');
 
 // Initialize Firebase Admin
+// Handle private key - Railway may add real newlines, so we need to clean it up
+let privateKey = process.env.FIREBASE_PRIVATE_KEY;
+if (privateKey) {
+  // Remove quotes if present
+  privateKey = privateKey.replace(/^"|"$/g, '');
+  // Remove any extra whitespace/newlines
+  privateKey = privateKey.replace(/\s+/g, ' ').trim();
+  // Replace literal \n with actual newlines
+  privateKey = privateKey.replace(/\\n/g, '\n');
+
+  console.log('[Firebase] Private key first 50 chars:', privateKey.substring(0, 50));
+  console.log('[Firebase] Private key last 50 chars:', privateKey.substring(privateKey.length - 50));
+}
+
 const serviceAccount = {
   projectId: process.env.FIREBASE_PROJECT_ID,
-  privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+  privateKey: privateKey,
   clientEmail: process.env.FIREBASE_CLIENT_EMAIL
 };
 
