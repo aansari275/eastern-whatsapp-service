@@ -405,7 +405,7 @@ async function startServer() {
     console.log('='.repeat(60));
 
     // Start Express server FIRST so Cloud Run health check passes
-    app.listen(PORT, () => {
+    app.listen(PORT, '0.0.0.0', () => {
       console.log('✓ Express server started');
       console.log(`✓ Listening on port ${PORT}`);
       console.log('='.repeat(60));
